@@ -1,0 +1,1 @@
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-Exemplo_02 - Contexto Variável\Debug\Exemplo_02.exe

@@ -1,2 +1,2 @@
 # Sistemas de Computacao
- Repositório para a matéria de Sistemas de Computação do 7º período
+Repository created for the SDC subject (7th semester/2022)

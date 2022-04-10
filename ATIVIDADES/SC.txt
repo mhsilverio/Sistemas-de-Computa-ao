@@ -1,0 +1,43 @@
+o chaveamento do prcoesso entre os diversos processos é dem
+time-sharing
+
+onde é armazenada a info de endereço de memória da próxima instrução a ser executada no processador - PC
+
+TABELA DE PROCESSO -armazena o endereço dos blocos de memória (controle do bloco de processos)
+
+módulo de kerner de rtos que escolhe qual será a proxima tarefa a aser executada - escalanador
+
+HANDLER - ser um indificador de questão de prioridade
+
+BCP - registrador, estado do processo, prioridade, e p filas
+
+comprimento de prazos - caracteristca comum aplicadas em todos RTOS
+
+TAREFA - segmento de código cuja possui um atributo temporal próprio
+
+instante max desejado para a conclusão de uma tarefa- deadline
+
+é uma interrupção periodica gerada pelo harware do sistema, marca de tempo - timer tick no RTOS
+
+xtaskcreate() - permite criar uma nova tarefa
+
+excluir explicitamente uma tarefa - staskdelete()
+
+inicia o escalonamento de tarefas - vtaskstartschedule()
+
+alterar a prioridade de determinada tarefa - vtaskpriorityset() - prioridade a ser alterada e o Handler
+
+a atrefa possui a su apropria area de pilha, a corrotina não (PRINCIAPL DIFERENÇA ENTRE AS TAREFAS E CORROTINAS)
+
+criação e eliminação de tarefas, sincronização e comunicação entre as tarefas, processo de troca de tarefa que esta em excecussão no processador
+e decisão de qual tarefa deve executar em um determ mom (nucleo
+
+quais os principais meios de comunicação entre  processos (ipc) - pipes, arquivos, sockets, memoria compartilhada.
+
+qual operação que cria uma copia exata do rpocesso pai? FORK
+
+condição de corrida - quando dois ou mais processos estão acessando dados compartilhados
+
+cessão critica - impedir que mais de um processo acesse o dado compartilhado ao mesmo tempo
+
+oq pode fazer para tratar um problema de condição de corrida - utilizar um algoritmo de exclusão mútua

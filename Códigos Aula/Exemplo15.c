@@ -1,3 +1,5 @@
+// Leitura da Fila sem Remoção
+
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"

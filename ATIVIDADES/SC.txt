@@ -1,43 +1,43 @@
-o chaveamento do prcoesso entre os diversos processos é dem
-time-sharing
+	• o chaveamento do processo entre os diversos processos é denominado: time-sharing
 
-onde é armazenada a info de endereço de memória da próxima instrução a ser executada no processador - PC
+	• onde é armazenada a info de endereço de memória da próxima instrução a ser executada no processador - PC
 
-TABELA DE PROCESSO -armazena o endereço dos blocos de memória (controle do bloco de processos)
+	• TABELA DE PROCESSO -armazena o endereço dos blocos de memória (controle do bloco de processos)
 
-módulo de kerner de rtos que escolhe qual será a proxima tarefa a aser executada - escalanador
+	• módulo de kerner de RTOS que escolhe qual será a próxima tarefa a ser executada - escalonador
 
-HANDLER - ser um indificador de questão de prioridade
+	• HANDLER - ser um indentificador de questão de prioridade
 
-BCP - registrador, estado do processo, prioridade, e p filas
+	• BCP - registrador, estado do processo, prioridade, e p filas
 
-comprimento de prazos - caracteristca comum aplicadas em todos RTOS
+	• comprimento de prazos - característica comum aplicadas em todos RTOS
 
-TAREFA - segmento de código cuja possui um atributo temporal próprio
+	• TAREFA - segmento de código cuja possui um atributo temporal próprio
 
-instante max desejado para a conclusão de uma tarefa- deadline
+	• instante max desejado para a conclusão de uma tarefa- deadline
 
-é uma interrupção periodica gerada pelo harware do sistema, marca de tempo - timer tick no RTOS
+	• É uma interrupção periódica gerada pelo hardware do sistema, marca de tempo - timer tick no RTOS
 
-xtaskcreate() - permite criar uma nova tarefa
+	• xtaskcreate() - permite criar uma nova tarefa
 
-excluir explicitamente uma tarefa - staskdelete()
+	• excluir explicitamente uma tarefa - staskdelete()
 
-inicia o escalonamento de tarefas - vtaskstartschedule()
+	• inicia o escalonamento de tarefas - vtaskstartschedule()
 
-alterar a prioridade de determinada tarefa - vtaskpriorityset() - prioridade a ser alterada e o Handler
+	• alterar a prioridade de determinada tarefa - vtaskpriorityset() - prioridade a ser alterada e o Handler
 
-a atrefa possui a su apropria area de pilha, a corrotina não (PRINCIAPL DIFERENÇA ENTRE AS TAREFAS E CORROTINAS)
+	• a tarefa possui a sua própria área de pilha, a Corrotina não (PRINCIAPL DIFERENÇA ENTRE AS TAREFAS E CORROTINAS)
 
-criação e eliminação de tarefas, sincronização e comunicação entre as tarefas, processo de troca de tarefa que esta em excecussão no processador
-e decisão de qual tarefa deve executar em um determ mom (nucleo
+	• criação e eliminação de tarefas, sincronização e comunicação entre as tarefas, processo de troca de tarefa que está em execução no processador
+	
+	• e decisão de qual tarefa deve executar em um determinada memória - nucleo
 
-quais os principais meios de comunicação entre  processos (ipc) - pipes, arquivos, sockets, memoria compartilhada.
+	• quais os principais meios de comunicação entre  processos (ipc) - pipes, arquivos, sockets, memória compartilhada.
 
-qual operação que cria uma copia exata do rpocesso pai? FORK
+	• qual operação que cria uma cópia exata do processo pai? - FORK
 
-condição de corrida - quando dois ou mais processos estão acessando dados compartilhados
+	• condição de corrida - quando dois ou mais processos estão acessando dados compartilhados
 
-cessão critica - impedir que mais de um processo acesse o dado compartilhado ao mesmo tempo
-
-oq pode fazer para tratar um problema de condição de corrida - utilizar um algoritmo de exclusão mútua
+	• cessão critica - impedir que mais de um processo acesse o dado compartilhado ao mesmo tempo
+  
+  • oq pode fazer para tratar um problema de condição de corrida - utilizar um algoritmo de exclusão mútua

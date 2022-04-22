@@ -40,4 +40,4 @@
 
 	• cessão critica - impedir que mais de um processo acesse o dado compartilhado ao mesmo tempo
   
-  • oq pode fazer para tratar um problema de condição de corrida - utilizar um algoritmo de exclusão mútua
+  	• oq pode fazer para tratar um problema de condição de corrida - utilizar um algoritmo de exclusão mútua

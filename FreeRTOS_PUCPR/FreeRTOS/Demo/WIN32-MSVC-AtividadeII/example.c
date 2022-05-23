@@ -6,6 +6,11 @@
 #include <time.h>
 #include <stdlib.h>
 
+// Alunos:
+// Carlos Eduardo Marques Assunção Torres
+// Milena Heloísa de Silvério Amorim
+// Ricardo Godoi Kurashiki
+
 // Definindo o prot�tipo das tarefas 
 void Socrates(void *pvParameters);
 void Descartes(void *pvParameters);
@@ -46,12 +51,21 @@ int main_(void)
 
 void PegaGarfos(void* pvParameters)
 {
+	for (;; )
+	{
+		if (xSemaphore != NULL)
+		{
+			if (xSemaphoreTake(xSemaphore, (portTickType)10) == pdTRUE) 
+			{
 
+			}
+		}
+	}
 }
 
 void SoltaGarfo(void* pvParameters)
 {
-
+	xSemaphoreGive(xSemaphore);
 }
 
 
@@ -197,7 +211,7 @@ void Hegel(void* pvParameters)
 				vPrintString("\nHegel esta comendo");
 				vPrintString("\nHegel esta pensando");
 				/*
-				A fun��o xSemaphoreGive() permite liberar o uso do sem�foro
+				A funcao xSemaphoreGive() permite liberar o uso do sem�foro
 				*/
 				xSemaphoreGive(xSemaphore);
 			}

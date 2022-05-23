@@ -1,27 +1,14 @@
 ﻿cl : linha de comando warning D9035: opção 'Gm' foi preterida e será removida em uma versão futura
-  Run-time-stats-utils.c
-  tasks.c
-  queue.c
-  port.c
-  list.c
-  main.c
   example.c
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-Exemplo_18 - Semaforos\example.c(35,19): warning C4100: 'pvParameters': parâmetro formal não referenciado
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-Exemplo_18 - Semaforos\example.c(73,19): warning C4100: 'pvParameters': parâmetro formal não referenciado
-  basic_io.c
-  timers.c
-  heap_5.c
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Source\portable\MemMang\heap_5.c(344,6): warning C4146: operador menos unário aplicado a tipo unsigned, resultado permanece unsigned
-  event_groups.c
-  croutine.c
-  trcUser.c
-  trcKernelPort.c
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS-Plus\Source\FreeRTOS-Plus-Trace\trcKernelPort.c(121,74): warning C4305: '=': truncamento de 'int' para 'objectHandleType'
-  trcKernel.c
-  trcHardwarePort.c
-  trcBase.c
-  Gerando Código...
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-Exemplo_18 - Semaforos\example.c(70): warning C4702: código inacessível
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-Exemplo_18 - Semaforos\example.c(32): warning C4702: código inacessível
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-Exemplo_18 - Semaforos\example.c(106): warning C4702: código inacessível
-  WIN32.vcxproj -> C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-Exemplo_18 - Semaforos\Debug\Exemplo_18.exe
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(47,23): warning C4100: 'pvParameters': parâmetro formal não referenciado
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(52,23): warning C4100: 'pvParameters': parâmetro formal não referenciado
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(73,9): error C2059: erro de sintaxe: ')'
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(81,3): error C2181: else inválido sem if correspondente
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2143: erro de sintaxe: ')' ausente antes de '('
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2091: função retorna função
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2059: erro de sintaxe: ')'
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2143: erro de sintaxe: ')' ausente antes de 'constante'
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2143: erro de sintaxe: '{' ausente antes de 'constante'
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2059: erro de sintaxe: 'constante'
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,18): error C2059: erro de sintaxe: ')'
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(92,1): error C2059: erro de sintaxe: '}'

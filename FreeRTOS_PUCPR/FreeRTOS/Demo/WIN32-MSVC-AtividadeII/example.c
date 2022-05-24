@@ -10,19 +10,30 @@
 // Carlos Eduardo Marques Assunção Torres
 // Milena Heloísa de Silvério Amorim
 // Ricardo Godoi Kurashiki
+// Engenharia de Comuputacao - 7 periodo
+// Sistemas de computacao
 
-// Definindo o prot�tipo das tarefas 
-void Socrates(void *pvParameters);
-void Descartes(void *pvParameters);
+// Definindo o prototipo das tarefas 
+void Socrates(void* pvParameters);
+void Descartes(void* pvParameters);
 void Aristoteles(void* pvParameters);
 void Kant(void* pvParameters);
 void Hegel(void* pvParameters);
+void mostraEstados(void* pvParameters);
 
-void PegaGarfos(void* pvParameters);
-void SoltaGarfo(void* pvParameters);
+// Criando a variavel para o semaforo
+xSemaphoreHandle garSH = NULL; // Garfo entre Socrates e Hegel
+xSemaphoreHandle garSD = NULL; // Garfo entre Socrates e Descartes
+xSemaphoreHandle garDA = NULL; // Garfo entre Descartes e Aristoteles
+xSemaphoreHandle garAK = NULL; // Garfo entre Aristoteles e Kant
+xSemaphoreHandle garKH = NULL; // Garfo entre Kant e Hegel
+xSemaphoreHandle estados = NULL;
 
-// Criando a vari�vel para o sem�foro
-xSemaphoreHandle xSemaphore = NULL;
+volatile int socratesComendo = 0;
+volatile int descartesComendo = 0;
+volatile int aristotelesComendo = 0;
+volatile int kantComendo = 0;
+volatile int hegelComendo = 0;
 
 TaskHandle_t SocratesHandle = NULL;
 TaskHandle_t DescartesHandle = NULL;
@@ -32,198 +43,260 @@ TaskHandle_t HegelHandle = NULL;
 
 int main_(void)
 {
-		// Funcao para criar um sem�foro Mutex
-		xSemaphore = xSemaphoreCreateMutex();
+	// Funcao para criar um semaforo Mutex
+	garSH = xSemaphoreCreateMutex();
+	garSD = xSemaphoreCreateMutex();
+	garDA = xSemaphoreCreateMutex();
+	garAK = xSemaphoreCreateMutex();
+	garKH = xSemaphoreCreateMutex();
+	estados = xSemaphoreCreateMutex();
 
-		// Criando duas tarefas 
-		xTaskCreate(Socrates, "Socrates", 1000, NULL, 1, &SocratesHandle);
-		xTaskCreate(Descartes, "Descartes", 1000, NULL, 1, &DescartesHandle);
-		xTaskCreate(Aristoteles, "Aristoteles", 1000, NULL, 1, &AristotelesHandle);
-		xTaskCreate(Kant, "Kant", 1000, NULL, 1, &KantHandle);
-		xTaskCreate(Hegel, "Hegel", 1000, NULL, 1, &HegelHandle);
+	// Criando tarefas 
+	xTaskCreate(Socrates, "Socrates", 500, NULL, 1, &SocratesHandle);
+	xTaskCreate(Descartes, "Descartes", 500, NULL, 1, &DescartesHandle);
+	xTaskCreate(Aristoteles, "Aristoteles", 500, NULL, 1, &AristotelesHandle);
+	xTaskCreate(Kant, "Kant", 500, NULL, 1, &KantHandle);
+	xTaskCreate(Hegel, "Hegel", 500, NULL, 1, &HegelHandle);
+	xTaskCreate(mostraEstados, "Estados", 500, NULL, 1, NULL);
 
-		// Inicializa o escalonador
-		vTaskStartScheduler();
+	// Inicializa o escalonador
+	vTaskStartScheduler();
 
 	for (;; );
 	return 0;
 }
 
-void PegaGarfos(void* pvParameters)
+void mostraEstados(void* pvParameters)
 {
-	for (;; )
+	for (;;)
 	{
-		if (xSemaphore != NULL)
+		if (xSemaphoreTake(estados, (portTickType)10) == pdTRUE)
 		{
-			if (xSemaphoreTake(xSemaphore, (portTickType)10) == pdTRUE) 
-			{
+			if (socratesComendo == 1)
+				vPrintString("Socrates esta comendo\n");
+			else
+				vPrintString("Socrates esta pensando\n");
 
-			}
+			if (descartesComendo == 1)
+				vPrintString("Descartes esta comendo\n");
+			else
+				vPrintString("Descartes esta pensando\n");
+
+			if (aristotelesComendo == 1)
+				vPrintString("Aristoteles esta comendo\n");
+			else
+				vPrintString("Aristoteles esta pensando\n");
+
+			if (kantComendo == 1)
+				vPrintString("Kant esta comendo\n");
+			else
+				vPrintString("Kant esta pensando\n");
+
+			if (hegelComendo == 1)
+				vPrintString("Hegel esta comendo\n");
+			else
+				vPrintString("Hegel esta pensando\n");
+
+			vPrintString("\n");
+			xSemaphoreGive(estados);
 		}
+
+		vTaskDelay(portTICK_RATE_MS * 500);
 	}
-}
 
-void SoltaGarfo(void* pvParameters)
-{
-	xSemaphoreGive(xSemaphore);
+	vTaskDelete(NULL);
 }
-
 
 void Socrates(void* pvParameters)
 {
 	for (;; )
 	{
-		// Verificando se o semaforo foi criado antes de utiliz�-lo
-		if (xSemaphore != NULL) {
+		if (garSH != NULL && garSD != NULL) 
+		{
+			if (xSemaphoreTake(garSH, (portTickType)10) == pdTRUE)
+			{
+				if (xSemaphoreTake(garSD, (portTickType)10) == pdTRUE)
+				{
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						socratesComendo = 1;
+						xSemaphoreGive(estados);
+					}
 
-			/* A fun��o xSemaphoreTake() verifica se o sem�foro est� dispon�vel, caso o sem�foro esteja  dispon�vel ele obt�m o sem�foro
-			   Caso o sem�foro estiver sendo utilizado este aguarde 10 ticks para ver o sem�foro � liberado.
-			   A fun��o xSemaphoreTake() recebe dois par�metros:
-			   - O primeiro par�metro corresponde ao sem�foro
-			   - O segundo par�metro corresponde o tempo que a fun��o deve aguardar caso o sem�foro j� esteja sendo utilizado.
-			*/
-			if (xSemaphoreTake(xSemaphore, (portTickType)10) == pdTRUE) {
-				
-				if () {
-					vPrintString("\nSocrates esta comendo");
-				} else vPrintString("\nSocrates esta pensando");
-				
-				// A funcao xSemaphoreGive() permite liberar o uso do sem�foro
-				xSemaphoreGive(xSemaphore);
+					vTaskDelay(portTICK_RATE_MS * 250);
+
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						socratesComendo = 0;
+						xSemaphoreGive(estados);
+					}
+					
+					xSemaphoreGive(garSD);
+				}
+
+				xSemaphoreGive(garSH);
 			}
 		}
 		else
 		{
-			// imprime a mensagem caso o semaforo nao tenha sido criado
 			printf("O semaforo nao foi criado\n");
 		}
-		// Efetua um delay na tarefa a cada 100 ticks
-		vTaskDelay(portTICK_RATE_MS * 100);
+
+		vTaskDelay(portTICK_RATE_MS * 50);
 	}
 
-	// A fun��o vTaskDelete() permite liberar explicitamente a tarefa
 	vTaskDelete(NULL);
 }
 void Descartes(void* pvParameters)
 {
-
 	for (;; )
 	{
-		// Verificando se o sem�foro foi criado antes de utiliz�-lo
-		if (xSemaphore != NULL) {
+		if (garSD != NULL && garDA != NULL) 
+		{
+			if (xSemaphoreTake(garSD, (portTickType)10) == pdTRUE)
+			{
+				if (xSemaphoreTake(garDA, (portTickType)10) == pdTRUE)
+				{
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						descartesComendo = 1;
+						xSemaphoreGive(estados);
+					}
+					
+					vTaskDelay(portTICK_RATE_MS * 250);
+					
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						descartesComendo = 0;
+						xSemaphoreGive(estados);
+					}
 
-			if (xSemaphoreTake(xSemaphore, (portTickType)10) == pdTRUE) {
+					xSemaphoreGive(garDA);
+				}
 
-				vPrintString("\nDecartes esta comendo");
-				vPrintString("\nDecartes esta pensando");
-
-				/*
-				A fun��o xSemaphoreGive() permite liberar o uso do sem�foro
-				*/
-				xSemaphoreGive(xSemaphore);
+				xSemaphoreGive(garSD);
 			}
 		}
 		else
 		{
-			// imprime a mensagem caso o semaforo nao tenha sido criado
 			printf("O semaforo nao foi criado\n");
 		}
-		// Efetua um delay na tarefa a cada 100 ticks
+
 		vTaskDelay(portTICK_RATE_MS * 100);
 	}
 
-	// A fun��o vTaskDelete() permite liberar explicitamente a tarefa
 	vTaskDelete(NULL);
 }
 void Aristoteles(void* pvParameters)
 {
-
 	for (;; )
 	{
-		// Verificando se o sem�foro foi criado antes de utiliz�-lo
-		if (xSemaphore != NULL) {
+		if (garDA != NULL && garAK != NULL) 
+		{
+			if (xSemaphoreTake(garDA, (portTickType)10) == pdTRUE)
+			{
+				if (xSemaphoreTake(garAK, (portTickType)10) == pdTRUE)
+				{
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						aristotelesComendo = 1;
+						xSemaphoreGive(estados);
+					}
+					
+					vTaskDelay(portTICK_RATE_MS * 250);
+					
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						aristotelesComendo = 0;
+						xSemaphoreGive(estados);
+					}
 
-			if (xSemaphoreTake(xSemaphore, (portTickType)10) == pdTRUE) {
+					xSemaphoreGive(garAK);
+				}
 
-				vPrintString("\nAristoteles esta comendo");
-				vPrintString("\nAristoteles esta pensando");
-
-				/*
-				A funcao xSemaphoreGive() permite liberar o uso do sem�foro
-				*/
-				xSemaphoreGive(xSemaphore);
+				xSemaphoreGive(garDA);
 			}
 		}
 		else
 		{
-			// imprime a mensagem caso o semaforo nao tenha sido criado
 			printf("O semaforo nao foi criado\n");
 		}
-		// Efetua um delay na tarefa a cada 100 ticks
-		vTaskDelay(portTICK_RATE_MS * 100);
+
+		vTaskDelay(portTICK_RATE_MS * 150);
 	}
 
-	// A fun��o vTaskDelete() permite liberar explicitamente a tarefa
 	vTaskDelete(NULL);
 }
 void Kant(void* pvParameters)
 {
-
 	for (;; )
 	{
-		// Verificando se o semaforo foi criado antes de utiliz�-lo
-		if (xSemaphore != NULL) {
+		if (garAK != NULL && garKH != NULL) {
+			if (xSemaphoreTake(garAK, (portTickType)10) == pdTRUE)
+			{
+				if (xSemaphoreTake(garKH, (portTickType)10) == pdTRUE)
+				{
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						kantComendo = 1;
+						xSemaphoreGive(estados);
+					}
+					vTaskDelay(portTICK_RATE_MS * 250);
 
-			if (xSemaphoreTake(xSemaphore, (portTickType)10) == pdTRUE) {
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						kantComendo = 0;
+						xSemaphoreGive(estados);
+					}
 
-				vPrintString("\nKant esta comendo");
-				vPrintString("\nKant esta pensando");
+					xSemaphoreGive(garKH);
+				}
 
-				/*
-				A funcao xSemaphoreGive() permite liberar o uso do sem�foro
-				*/
-				xSemaphoreGive(xSemaphore);
+				xSemaphoreGive(garAK);
 			}
 		}
 		else
 		{
-			// imprime a mensagem caso o semaforo nao tenha sido criado
 			printf("O semaforo nao foi criado\n");
 		}
-		// Efetua um delay na tarefa a cada 100 ticks
-		vTaskDelay(portTICK_RATE_MS * 100);
+		vTaskDelay(portTICK_RATE_MS * 200);
 	}
-
-	// A fun��o vTaskDelete() permite liberar explicitamente a tarefa
 	vTaskDelete(NULL);
 }
 
 void Hegel(void* pvParameters)
 {
-
 	for (;; )
 	{
-		
-		if (xSemaphore != NULL) {
+		if (garKH != NULL && garSH != NULL) {
+			if (xSemaphoreTake(garKH, (portTickType)10) == pdTRUE)
+			{
+				if (xSemaphoreTake(garSH, (portTickType)10) == pdTRUE)
+				{
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						hegelComendo = 1;
+						xSemaphoreGive(estados);
+					}
 
-			if (xSemaphoreTake(xSemaphore, (portTickType)10) == pdTRUE) {
+					vTaskDelay(portTICK_RATE_MS * 250);
+					
+					if (xSemaphoreTake(estados, (portTickType)1000) == pdTRUE)
+					{
+						hegelComendo = 0;
+						xSemaphoreGive(estados);
+					}
 
-				vPrintString("\nHegel esta comendo");
-				vPrintString("\nHegel esta pensando");
-				/*
-				A funcao xSemaphoreGive() permite liberar o uso do sem�foro
-				*/
-				xSemaphoreGive(xSemaphore);
+					xSemaphoreGive(garSH);
+				}
+				xSemaphoreGive(garKH);
 			}
 		}
 		else
 		{
-			// imprime a mensagem caso o semaforo nao tenha sido criado
 			printf("O semaforo nao foi criado\n");
 		}
-		// Efetua um delay na tarefa a cada 100 ticks
-		vTaskDelay(portTICK_RATE_MS * 100);
+		vTaskDelay(portTICK_RATE_MS * 250);
 	}
-	// A fun��o vTaskDelete() permite liberar explicitamente a tarefa
 	vTaskDelete(NULL);
 }

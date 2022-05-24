@@ -1,14 +1,16 @@
 ﻿cl : linha de comando warning D9035: opção 'Gm' foi preterida e será removida em uma versão futura
   example.c
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(47,23): warning C4100: 'pvParameters': parâmetro formal não referenciado
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(52,23): warning C4100: 'pvParameters': parâmetro formal não referenciado
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(73,9): error C2059: erro de sintaxe: ')'
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(81,3): error C2181: else inválido sem if correspondente
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2143: erro de sintaxe: ')' ausente antes de '('
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2091: função retorna função
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2059: erro de sintaxe: ')'
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2143: erro de sintaxe: ')' ausente antes de 'constante'
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2143: erro de sintaxe: '{' ausente antes de 'constante'
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,14): error C2059: erro de sintaxe: 'constante'
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(91,18): error C2059: erro de sintaxe: ')'
-C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(92,1): error C2059: erro de sintaxe: '}'
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(69,26): warning C4100: 'pvParameters': parâmetro formal não referenciado
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(110,21): warning C4100: 'pvParameters': parâmetro formal não referenciado
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(150,22): warning C4100: 'pvParameters': parâmetro formal não referenciado
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(190,24): warning C4100: 'pvParameters': parâmetro formal não referenciado
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(230,17): warning C4100: 'pvParameters': parâmetro formal não referenciado
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(267,18): warning C4100: 'pvParameters': parâmetro formal não referenciado
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(107): warning C4702: código inacessível
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(188): warning C4702: código inacessível
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(66): warning C4702: código inacessível
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(148): warning C4702: código inacessível
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(264): warning C4702: código inacessível
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(228): warning C4702: código inacessível
+C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\example.c(301): warning C4702: código inacessível
+  WIN32.vcxproj -> C:\Users\rene-\OneDrive\Documentos\Milena\7 SEMESTRE\Sistemas de Computação\Sistemas-de-Computacao\FreeRTOS_PUCPR\FreeRTOS\Demo\WIN32-MSVC-AtividadeII\Debug\Exemplo_18.exe
